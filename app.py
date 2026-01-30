@@ -1,3 +1,9 @@
+import streamlit as st
+import pandas as pd
+import pickle  # Changed from joblib to pickle
+import numpy as np
+import os
+
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Iris Classifier", page_icon="🌸")
 
@@ -12,14 +18,13 @@ def load_model():
     else:
         st.error(f"Model file '{model_path}' not found!")
         return None
-    
 
-    model = load_model()
+model = load_model()
 
 # --- UI INTERFACE ---
 st.title("🌸 Iris Species Predictor")
 st.markdown("""
-This app uses a *Logistic Regression* model to predict the species of an Iris flower 
+This app uses a **Logistic Regression** model to predict the species of an Iris flower 
 based on its physical measurements.
 """)
 
